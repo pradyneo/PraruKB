@@ -3,7 +3,6 @@ package com.praru.prarukb;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.NinePatchDrawable;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.util.AttributeSet;
@@ -42,7 +41,9 @@ public class CustomKeyboardView extends KeyboardView {
         List<Keyboard.Key> keyList = getKeyboard().getKeys();
         for (Keyboard.Key key : keyList){
             if (key.codes[0] < 57 && key.codes[0] > 48){
-                Drawable drawable = getContext().getResources().getDrawable(R.drawable.)
+                Drawable drawable = getContext().getResources().getDrawable(R.color.candidate_other);
+                drawable.setBounds(key.x, key.y, key.x + key.width, key.y + key.height);
+                drawable.draw(canvas);
             }
         }
     }
